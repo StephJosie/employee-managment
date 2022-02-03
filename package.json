@@ -17,5 +17,8 @@
     "bugs": {
         "url": "https://github.com/StephJosie/employee-managment/issues"
     },
-    "homepage": "https://github.com/StephJosie/employee-managment#readme"
+    "homepage": "https://github.com/StephJosie/employee-managment#readme",
+    "dependencies": {
+        "mysql2": "^2.3.3"
+    }
 }

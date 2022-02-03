@@ -16,5 +16,14 @@ class DB {
             emplyeeId
         );
     }
-    creatEmployee
+    creatEmployee(employee) {
+        return this.connection.promise().query("Insert into employee,", employee);
+
+    }
+    removeEmployee(employeeId) {
+        return this.connection.promis().query(
+            "Delete",
+            employeeId
+        )
+    }
 }

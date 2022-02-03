@@ -6,7 +6,15 @@ class DB {
 
     findAllEmployees() {
         return this.connection.promise().query(
+            "Sleect employee.id,"
 
-        )
+        );
     }
+    findAllPossibleManagers(employeeId) {
+        return this.connection.promise().query(
+            "Select id, first_name,",
+            emplyeeId
+        );
+    }
+    creatEmployee
 }

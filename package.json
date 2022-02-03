@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/StephJosie/employee-managment#readme",
     "dependencies": {
+        "inquirer": "^8.2.0",
         "mysql2": "^2.3.3"
     }
 }

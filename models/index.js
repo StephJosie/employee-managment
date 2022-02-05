@@ -26,4 +26,25 @@ class DB {
             employeeId
         )
     }
+
+    updateEmployeeRole(employeeId, roleId) {
+        return this.connection.promise().query(
+            "Update", [roleId, employeeId]
+        )
+    }
+    findAllRoles() {
+        return this.connection.promise().query(
+            "Update"
+        )
+    }
+
+    createRole(role) {
+        return this.connection.promise().query("INSERT INTO role SET ?", role);
+
+    }
+    removeRole(role) {
+        return this.connection.promise().query("DELETE FROM role WHERE id = ?", roleId);
+
+    }
+
 }

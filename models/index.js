@@ -42,9 +42,36 @@ class DB {
         return this.connection.promise().query("INSERT INTO role SET ?", role);
 
     }
-    removeRole(role) {
+    removeRole(roleId) {
         return this.connection.promise().query("DELETE FROM role WHERE id = ?", roleId);
 
     }
+    findAllDepartments() {
+        return this.connection.promise().query(
+            "SELECT"
+
+        )
+    }
+    viewDepartmentBudgets() {
+        return this.connection.promise().query(
+            "SELECT"
+        )
+    }
+    createDepartment(department) {
+        return this.connection.promise().query("INSERT", department);
+
+    }
+    removeDepartment(departmentId) {
+        return this.connection.promise().query
+            (
+                "DELETE FROM department WHERE id = ?", departmentId);
+    }
+    findAllEmployeesDepartment(departmentId) {
+        return this.connection.promise().query("SELECT", departmentId);
+    }
+    findAllEmployeesByManager(managerId) {
+        return this.connection.promise().query("SELECT", managerId);
+    }
 
 }
+module.exports = new DB(connection);

@@ -1,6 +1,29 @@
 const { prompt } = require("inquirer")
-const logo = require("asciiart-logo")
 const db = require("./db")
-const { INITIALLY_DEFERRED } = require("sequelize/dist/lib/deferrable")
-require("console.table")
+require("console.table");
 
+function loadMainPrompts() {
+    prompt([
+        {
+            type: "list",
+            name: "choice",
+            message: "What would you like to do?",
+            choices: [
+                {
+                    name: "View All Employees",
+                    value: "VIEW_EMPLOYEES"
+                }
+            ]
+        }
+    ])
+}
+
+function viewEmployees()
+db.findAllEmployees()
+    .then(([rows]) => {
+        let employees = rows;
+        console.log("\n");
+        console.table(employees);
+    })
+    .then(() => loadMainPrompts())
+viewEmployees();

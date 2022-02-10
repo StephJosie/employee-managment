@@ -1,3 +1,5 @@
+use employee;
+
 INSERT INTO department
 (name)
 VALUES  (10, "Engineering"),

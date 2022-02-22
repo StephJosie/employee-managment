@@ -5,14 +5,14 @@ const { prompt } = require("inquirer");
 const db = require('./db');
 // const connection = require('./db/connections.js');
 // const questions = require('./db/index.js');
-require("console.table");
+const cTable = require("console.table");
 const logo = require("asciiart-logo");
 
 
 
 // displayLogo();
 // start();
-init();
+// init();
 
 function init() {
     console.log(
@@ -29,6 +29,7 @@ function init() {
     );
     loadPrompts();
 }
+
 function loadPrompts() {
     prompt([
         {
@@ -123,12 +124,14 @@ function loadPrompts() {
             case "REMOVE_ROLE":
                 removeRole();
                 break;
-            default:
-                quit();
+            // default:
+            //     quit();
         }
     }
     )
 }
+
+
 function addEmployee() {
     prompt([
         {
@@ -247,12 +250,19 @@ function addNewRole() {
 function viewDepartments() {
     db.findAllDepartments()
         .then(([rows]) => {
-            let departments = rows;
+            let department = rows;
             console.log("\n");
-            console.table(departments);
+            console.table(department);
         })
         .then(() => loadPrompts());
 }
+// function viewDepartments() {
+//     db.findAllDepartments()
+//     console.table(results);
+
+// }
+
+
 
 
 
@@ -262,7 +272,7 @@ function viewEmployees() {
         .then(([rows]) => {
             let employees = rows;
             console.log("\n");
-            console.table(employees);
+            console.table(employee);
         })
         .then(() => loadPrompts());
 }
@@ -335,7 +345,7 @@ function employeesByManager() {
                     if (employees.length === 0) {
                         console.log("Selected employee has no direct reports");
                     } else {
-                        console.table(employees);
+                        console.table(employee);
                     }
                 })
                 .then(() => loadPrompts())
@@ -387,7 +397,7 @@ function employeesByDepartment() {
                 .then(([rows]) => {
                     let employees = rows;
                     console.log("\n");
-                    console.table(employees);
+                    console.table(employee);
                 })
                 .then(() => loadPrompts())
         });
@@ -397,7 +407,7 @@ function viewRoles() {
         .then(([rows]) => {
             let roles = rows;
             console.log("\n");
-            console.table(roles);
+            console.table(role);
         })
         .then(() => loadPrompts());
 }
@@ -428,10 +438,11 @@ function removeRole() {
         })
 }
 
-function quit() {
-    console.log("Done")
-    process.exit();
-}
+// function quit() {
+//     console.log("Done")
+//     process.exit();
+// }
+init();
 
 
 
